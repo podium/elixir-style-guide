@@ -33,27 +33,27 @@ If you want to add to this document, please submit a pull request or open an iss
 ### Code Readability
 
 * <a name="spaces-indentation"></a>
-  Use tabs consistently (2 spaces soft-tabs are **preferred**).
+  Use tabs consistently (2 spaces soft-tabs). Enforced by Formatter
   <sup>[[link](#spaces-indentation)]</sup>
 
 * <a name="line-endings"></a>
-  Use line-endings consistently (Unix-style line endings are **preferred**, but we should not exclude our brothers and sisters riding the Redmond dragon).
+  Use line-endings consistently (Unix-style line endings are **preferred**, but we should not exclude our brothers and sisters riding the Redmond dragon). Enforced by Formatter
   <sup>[[link](#line-endings)]</sup>
 
 * <a name="no-trailing-whitespace"></a>
-  Don't leave trailing white-space at the end of a line.
+  Don't leave trailing white-space at the end of a line. Enforced by Formatter
   <sup>[[link](#no-trailing-whitespace)]</sup>
 
 * <a name="newline-eof"></a>
-  End each file with a newline (some editors [don't do this by default](https://robots.thoughtbot.com/no-newline-at-end-of-file)).
+  End each file with a newline (some editors [don't do this by default](https://robots.thoughtbot.com/no-newline-at-end-of-file)). Enforced by Formatter
   <sup>[[link](#newline-eof)]</sup>
 
 * <a name="spaces-operators"></a>
-  Use spaces around operators and after commas.
+  Use spaces around operators and after commas. Enforced by Formatter
   <sup>[[link](#spaces-operators)]</sup>
 
 * <a name="spaces-braces"></a>
-  Don't use spaces after `(`, `[`, and `{` or before `}`, `]`, and `)`. This is the **preferred** way, although other styles are possible, as long as they are applied consistently.
+  Don't use spaces after `(`, `[`, and `{` or before `}`, `]`, and `)`. This is the **preferred** way, although other styles are possible, as long as they are applied consistently. Enforced by Formatter
   <sup>[[link](#spaces-braces)]</sup>
 
   ```elixir
@@ -65,7 +65,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="character-per-line-limit"></a>
-  Keep lines fewer than 80 characters whenever possible, although this is not a strict rule.
+  Keep lines fewer than 100 characters
   <sup>[[link](#character-per-line-limit)]</sup>
 
 * <a name="semicolon-between-statements"></a>
@@ -82,7 +82,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="no-space-bang"></a>
-  Don't put a space after `!` to negate an expression.
+  Don't put a space after `!` to negate an expression. Enforced by Formatter
   <sup>[[link](#no-space-bang)]</sup>
 
   ```elixir
@@ -159,24 +159,18 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="multi-line-call"></a>
-  When assigning to a multi-line call, begin a new line after the `=`. Indent the assigned value's calculation by one level. This is the **preferred** way.
+  When assigning to a multi-line call, begin a new line after the `=`. Indent the assigned value's calculation by one level. Enforced by Formatter
   <sup>[[link](#multi-line-call)]</sup>
 
   ```elixir
-  # preferred way
   result =
     lines
     |> Enum.map(&tabs_or_spaces/1)
     |> Enum.uniq
-
-  # also okay - align the first assignment and subsequent lines
-  result = lines
-           |> Enum.map(&tabs_or_spaces/1)
-           |> Enum.uniq
   ```
 
 * <a name="underscores-in-numerics"></a>
-  Add underscores to large numbers for better readability.
+  Add underscores to large numbers for better readability. Enforced by Formatter
   <sup>[[link](#underscores-in-numerics)]</sup>
 
   ```elixir
@@ -204,7 +198,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="function-calling-parens"></a>
-  Most of the time when calling functions that take parameters, it is **preferred** to use parentheses.
+  Most of the time when calling functions that take parameters, it is **preferred** to use parentheses. Enforced by Formatter
   <sup>[[link](#function-calling-parens)]</sup>
 
   ```elixir
@@ -214,14 +208,6 @@ If you want to add to this document, please submit a pull request or open an iss
   Enum.reduce(1..100, 0, fn(x, acc) ->
     x + acc
   end)
-
-  # also okay - carefully choose a style and use it consistently
-  Enum.reduce 1..100, 0, & &1 + &2
-
-  Enum.reduce 1..100, 0, fn x, acc ->
-    x + acc
-  end
-
   ```
 
 * <a name="macro-parens"></a>
@@ -238,7 +224,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="conditional-parens"></a>
-  Conclusively, never use parentheses around the condition of `if` or `unless` (since they are macros as well).
+  Conclusively, never use parentheses around the condition of `if` or `unless` (since they are macros as well). Enforced by Formatter
   <sup>[[link](#conditional-parens)]</sup>
 
   ```elixir
@@ -256,15 +242,11 @@ If you want to add to this document, please submit a pull request or open an iss
 #### Naming
 
 * <a name="camelcase-modules"></a>
-  Use CamelCase for module names. It is **preferred** to keep acronyms like HTTP, XML uppercase.
+  Use CamelCase for module names, including acronyms like HTTP, XML.
   <sup>[[link](#camelcase-modules)]</sup>
 
   ```elixir
   # preferred way
-  defmodule MyApp.HTTPService do
-  end
-
-  # also okay - carefully choose a style and use it consistently
   defmodule MyApp.HttpService do
   end
   ```
@@ -275,7 +257,7 @@ If you want to add to this document, please submit a pull request or open an iss
 
   ```elixir
   # preferred way
-  defmodule MyApp.HTTPService do
+  defmodule MyApp.HttpService do
     @some_setting :my_value
 
     def my_function(param_value) do
@@ -284,7 +266,7 @@ If you want to add to this document, please submit a pull request or open an iss
   end
 
   # NOT okay
-  defmodule MyApp.HTTPService do
+  defmodule MyApp.HttpService do
     @someSetting :my_value
 
     def myFunction(paramValue) do
@@ -299,16 +281,16 @@ If you want to add to this document, please submit a pull request or open an iss
 
   ```elixir
   # preferred way - common suffix Error
-  defmodule BadHTTPHeaderError do
+  defmodule BadHttpHeaderError do
     defexception [:message]
   end
 
-  defmodule HTTPRequestError do
+  defmodule HttpRequestError do
     defexception [:message]
   end
 
   # also okay - consistent prefix Invalid
-  defmodule InvalidHTTPHeader do
+  defmodule InvalidHttpHeader do
     defexception [:message]
   end
 
@@ -421,7 +403,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#doc-style)]</sup>
 
   ```elixir
-  defmodule MyApp.HTTPService do
+  defmodule MyApp.HttpService do
     @moduledoc false
 
     @doc "Sends a POST request to the given `url`."
@@ -572,7 +554,7 @@ If you want to add to this document, please submit a pull request or open an iss
 ### Software Design
 
 * <a name="fixme"></a>
-  Use `FIXME:` comments to mark issues/bugs inside your code.
+  Don't use `FIXME:` comments to mark issues/bugs inside your code. Instead create a ticket and assign it, or fix it.
   <sup>[[link](#fixme)]</sup>
 
   ```elixir
@@ -585,7 +567,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="todo"></a>
-  Use `TODO:` comments to plan changes to your code.
+  Don't use `TODO:` comments to plan changes to your code. Instead create a ticket and assign it.
   <sup>[[link](#todo)]</sup>
 
   ```elixir
@@ -596,8 +578,6 @@ If you want to add to this document, please submit a pull request or open an iss
     end
   end
   ```
-  
-  This way tools have a chance to find and report both `FIXME:` and `TODO:` comments.
 
 * <a name="alias-modules"></a>
   When developing applications, try to alias all used modules. This improves readability and makes it easier to reason about the dependencies of a module inside your project. There are obvious exceptions for modules from Elixir's stdlib (e.g. `IO.ANSI`) or if your submodule has a name identical to an existing name (e.g. don't alias `YourProject.List` because that would override `List`). Like most other points in this guide, this is just a suggestion, not a strict rule.
@@ -609,6 +589,16 @@ If you want to add to this document, please submit a pull request or open an iss
   defmodule Test do
     def something do
       MyApp.External.TwitterAPI.search(...)
+    end
+  end
+  
+  defmodule Test do
+    def something do
+      search(...)
+    end
+    
+    def search() do
+      MyApp.External.TwitterAPI.search()
     end
   end
 
@@ -634,7 +624,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#iex-pry)]</sup>
 
 * <a name="io-inspect"></a>
-  Be wary of calls to `IO.inspect` in production code. If you want to actually log useful information for later debugging, use a combination of `Logger` and `&inspect/1` instead.
+  Never leave a call to `IO.inspect` in production code. If you want to actually log useful information for later debugging, use a combination of `Logger` and `&inspect/1` instead.
   <sup>[[link](#io-inspect)]</sup>
 
 * <a name="debugging-conditionals"></a>
@@ -660,3 +650,4 @@ Follow your instincts. Write coherent code by applying a consistent style.
 ## License
 
 This work is licensed under [the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0).
+
