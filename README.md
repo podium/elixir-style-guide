@@ -1,17 +1,8 @@
-# [Credo](https://github.com/rrrene/credo)'s Elixir Style Guide [![Deps Status](https://beta.hexfaktor.org/badge/all/github/rrrene/elixir-style-guide.svg)](https://beta.hexfaktor.org/github/rrrene/elixir-style-guide)
-
-## Prelude
-
-There are two reasons for this document to exist:
-
-- It is my personal style guide and consists both of the way I write Elixir today, but more importantly of things I've seen in the wild and adapted because they make Elixir more readable for open source Alchemists everywhere.
-- Secondly, it is the [basis for Credo](https://github.com/rrrene/credo) and reflects the principles promoted by its code analysis.
-
-Like all of my work, this style guide stands on the shoulders of giants: It is influenced by the Ruby style guides by [bbatsov](https://github.com/bbatsov/ruby-style-guide) and [GitHub](https://github.com/styleguide/ruby) as well as more [public](http://elixir.community/styleguide) [attempts](https://github.com/niftyn8/elixir_style_guide) at Elixir Style Guides.
-
-
+# Podium Elixir Style Guide
 
 ## Philosophy
+
+### TODO: Do we need this section at all for the podium guide?
 
 Contrary to other guides I've seen, this one is not very dogmatic. The overall principles are
 
@@ -21,12 +12,10 @@ Contrary to other guides I've seen, this one is not very dogmatic. The overall p
 
 This is especially important because we are such a young community. All the **code we put out there is worth its weight in gold** if it is easy to comprehend and invites people to learn and contribute.
 
-
-
 ## Contribute
 
+### TODO: What are the Podium contribution guidelines for style guides?
 If you want to add to this document, please submit a pull request or open an issue to discuss specific points.
-
 
 ## The Actual Guide
 
@@ -37,7 +26,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#spaces-indentation)]</sup>
 
 * <a name="line-endings"></a>
-  Use line-endings consistently (Unix-style line endings are **preferred**, but we should not exclude our brothers and sisters riding the Redmond dragon). Enforced by Formatter
+  Use line-endings consistently. Enforced by Formatter
   <sup>[[link](#line-endings)]</sup>
 
 * <a name="no-trailing-whitespace"></a>
@@ -53,7 +42,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#spaces-operators)]</sup>
 
 * <a name="spaces-braces"></a>
-  Don't use spaces after `(`, `[`, and `{` or before `}`, `]`, and `)`. This is the **preferred** way, although other styles are possible, as long as they are applied consistently. Enforced by Formatter
+  Don't use spaces after `(`, `[`, and `{` or before `}`, `]`, and `)`. Enforced by Formatter
   <sup>[[link](#spaces-braces)]</sup>
 
   ```elixir
@@ -69,7 +58,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#character-per-line-limit)]</sup>
 
 * <a name="semicolon-between-statements"></a>
-  Don't use `;` to separate statements and expressions.
+  Don't use `;` to separate statements and expressions. Enforced by Formatter
   <sup>[[link](#semicolon-between-statements)]</sup>
 
   ```elixir
@@ -93,6 +82,7 @@ If you want to add to this document, please submit a pull request or open an iss
   denied = ! allowed?
   ```
 
+### TODO: The formatter actually enforces the opposite, should this be one of our formatter rules?
 * <a name="group-function-definitions"></a>
   Group function definitions. Keep the same function with different signatures together without separating blank lines. In all other cases, use blank lines to separate different functions/parts of your module (to maximize readability through "vertical white-space").
   <sup>[[link](#group-function-definitions)]</sup>
@@ -112,7 +102,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="vertical-space"></a>
-  Generally use vertical-space to improve readability of sections of your code.
+  Generally use vertical-space to improve readability of sections of your code. Enforced by Formatter.
   <sup>[[link](#vertical-space)]</sup>
 
   ```elixir
@@ -143,8 +133,9 @@ If you want to add to this document, please submit a pull request or open an iss
 
   ```
 
+### TODO: What do we prefer here?
 * <a name="pipe-chains"></a>
-  It is **preferred** to start pipe chains with a "pure" value rather than a function call.
+  It is preferred to start pipe chains with a "pure" value rather than a function call.
   <sup>[[link](#pipe-chains)]</sup>
 
   ```elixir
@@ -182,7 +173,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="function-parens"></a>
-  Use `def`, `defp`, and `defmacro` with parentheses when the function takes parameters. Omit the parentheses when the function doesn't accept any parameters. This is the **preferred** way.
+  Use `def`, `defp`, and `defmacro` with parentheses when the function takes parameters. Omit the parentheses when the function doesn't accept any parameters.
   <sup>[[link](#function-parens)]</sup>
 
   ```elixir
@@ -198,7 +189,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="function-calling-parens"></a>
-  Most of the time when calling functions that take parameters, it is **preferred** to use parentheses. Enforced by Formatter
+  When calling functions that take parameters, use parentheses. Enforced by Formatter
   <sup>[[link](#function-calling-parens)]</sup>
 
   ```elixir
@@ -211,7 +202,7 @@ If you want to add to this document, please submit a pull request or open an iss
   ```
 
 * <a name="macro-parens"></a>
-  For macros we see the contrary behaviour. The **preferred** way is to not use parentheses.
+  For macros we see the contrary behaviour. The preferred way is to not use parentheses.
   <sup>[[link](#macro-parens)]</sup>
 
   ```elixir
@@ -554,7 +545,7 @@ If you want to add to this document, please submit a pull request or open an iss
 ### Software Design
 
 * <a name="fixme"></a>
-  Don't use `FIXME:` comments to mark issues/bugs inside your code. Instead create a ticket and assign it, or fix it.
+  Never use `FIXME:`, `TODO:`, etc comments to mark issues/bugs inside your code. Instead create a ticket and assign/prioritize it, or simply fix it.
   <sup>[[link](#fixme)]</sup>
 
   ```elixir
@@ -566,21 +557,8 @@ If you want to add to this document, please submit a pull request or open an iss
   end
   ```
 
-* <a name="todo"></a>
-  Don't use `TODO:` comments to plan changes to your code. Instead create a ticket and assign it.
-  <sup>[[link](#todo)]</sup>
-
-  ```elixir
-  defmodule MyApp do
-    # TODO: rename into something more clear
-    def generic_function_name do
-      # ...
-    end
-  end
-  ```
-
 * <a name="alias-modules"></a>
-  When developing applications, try to alias all used modules. This improves readability and makes it easier to reason about the dependencies of a module inside your project. There are obvious exceptions for modules from Elixir's stdlib (e.g. `IO.ANSI`) or if your submodule has a name identical to an existing name (e.g. don't alias `YourProject.List` because that would override `List`). Like most other points in this guide, this is just a suggestion, not a strict rule.
+  When developing applications, try to alias all used modules. This improves readability and makes it easier to reason about the dependencies of a module inside your project. There are obvious exceptions for modules from Elixir's stdlib (e.g. `IO.ANSI`) or if your submodule has a name identical to an existing name (e.g. don't alias `YourProject.List` because that would override `List`).
   <sup>[[link](#alias-modules)]</sup>
 
   ```elixir
@@ -613,8 +591,7 @@ If you want to add to this document, please submit a pull request or open an iss
   end
   ```
 
-  The thinking behind this is that you can see the dependencies of your module at a glance. So if you are attempting to build a medium to large project, **this can help you to get your boundaries/layers/contracts right**.
-
+  The thinking behind this is that you can see the dependencies of your module at a glance. So if you are attempting to build a medium to large project, this can help you to get your boundaries/layers/contracts right.
 
 
 ### Pitfalls
@@ -624,7 +601,7 @@ If you want to add to this document, please submit a pull request or open an iss
   <sup>[[link](#iex-pry)]</sup>
 
 * <a name="io-inspect"></a>
-  Never leave a call to `IO.inspect` in production code. If you want to actually log useful information for later debugging, use a combination of `Logger` and `&inspect/1` instead.
+  Never leave a call to `IO.inspect` or `IO.puts` in production code. If you want to actually log useful information for later debugging, use a combination of `Logger` and `&inspect/1` instead.
   <sup>[[link](#io-inspect)]</sup>
 
 * <a name="debugging-conditionals"></a>
@@ -638,16 +615,3 @@ If you want to add to this document, please submit a pull request or open an iss
 * <a name="stdlib-modules"></a>
   Be wary of naming modules the same as modules in the stdlib. Sometimes `YourProject.DataTypeString` is a less error-prone choice as the seemingly cleaner `YourProject.DataType.String` because aliasing the latter in a module makes the *normal* `String` module unavailable.
   <sup>[[link](#stdlib-modules)]</sup>
-
-
-
-### Above all else
-
-Follow your instincts. Write coherent code by applying a consistent style.
-
-
-
-## License
-
-This work is licensed under [the CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0).
-
